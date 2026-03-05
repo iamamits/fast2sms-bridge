@@ -12,10 +12,11 @@ app.get("/http-api.php", async (req, res) => {
     const response = await axios.post(
       "https://www.fast2sms.com/dev/bulkV2",
       {
-        route: "q",
-        numbers: to,
+        route: "dlt",
+        sender_id: sender,
         message: message,
         language: "english",
+        numbers: to,
       },
       {
         headers: {
