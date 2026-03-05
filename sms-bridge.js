@@ -4,6 +4,8 @@ import axios from "axios";
 const app = express();
 
 const FAST2SMS_KEY = process.env.FAST2SMS_KEY;
+const TEMPLATE_ID = process.env.DLT_TEMPLATE_ID;
+const ENTITY_ID = process.env.DLT_ENTITY_ID;
 
 app.get("/http-api.php", async (req, res) => {
   const { sender, to, message } = req.query;
@@ -17,6 +19,9 @@ app.get("/http-api.php", async (req, res) => {
         message: message,
         language: "english",
         numbers: to,
+        flash: 0,
+        entity_id: ENTITY_ID,
+        template_id: TEMPLATE_ID,
       },
       {
         headers: {
@@ -36,5 +41,5 @@ app.get("/http-api.php", async (req, res) => {
 });
 
 app.listen(process.env.PORT || 3000, () => {
-  console.log("SMS Bridge running");
+  console.log("SMS bridge running");
 });
