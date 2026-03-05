@@ -22,6 +22,7 @@ app.get("/http-api.php", async (req, res) => {
         flash: 0,
         entity_id: process.env.ENTITY_ID,
         template_id: process.env.CONTENT_TEMPLATE_ID,
+        content_id: process.env.CONTENT_TEMPLATE_ID,
       },
       {
         headers: {
