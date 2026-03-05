@@ -20,13 +20,12 @@ app.get("/http-api.php", async (req, res) => {
         language: "english",
         numbers: to,
         flash: 0,
-        entity_id: ENTITY_ID,
-        template_id: TEMPLATE_ID,
+        entity_id: process.env.ENTITY_ID,
+        template_id: process.env.CONTENT_TEMPLATE_ID,
       },
       {
         headers: {
-          authorization: FAST2SMS_KEY,
-          "Content-Type": "application/json",
+          authorization: process.env.FAST2SMS_KEY,
         },
       },
     );
